@@ -58,26 +58,34 @@ const images = [
 ];
 
 const previousButton = document.querySelector('.previous');
-console.log(previousButton);
 
 const nextButton = document.querySelector('.next');
-console.log(nextButton);
 
+const carouselImg = document.querySelector('.carousel-image'); 
 
-const carouselImg = document.querySelector('.carousel-image'); //
-console.log(carouselImg);
+let myImgArr = [];
 
-for (let i = 0; i < images.length; i++) { //
+for (let i = 0; i < images.length; i++) { 
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('my_carousel-item');
+    carouselImg.append(carouselItem);
+    myImgArr.push(carouselItem);
 
-    let currentImage =
-    `<div class="my_carousel-item">
-        <img src="./img/${images[i].image}"</img>
-        <h3>${images[i].title}</h3>
-        <p>${images[i].text}</p>
-    </div>`
-
-    carouselImg.innerHTML += currentImage;
+    const currentImage = images[i];
+    carouselItem.innerHTML += `<img src="./img/${currentImage.image}"</img>`
+    carouselItem.innerHTML += `<h3>${currentImage.title}</h3>`;
+    carouselItem.innerHTML += `<p>${currentImage.text}</p>`;
 }
+
+console.log(myImgArr)
+
+let active = 0;
+myImgArr[0].classList.add('active');
+
+nextButton.addEventListener('click', function(){
+        
+});
+
 
 
 
