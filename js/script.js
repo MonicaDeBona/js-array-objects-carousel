@@ -7,25 +7,26 @@ Dato un array di oggetti letterali con:
 Creare un carosello.
 
 Milestone 0:
-Popoliamo dinamicamente il contenuto del carosello con i dati forniti dall'array di oggetti,
-dal js (dentro al nostro 'carousel-item', per capirci).
+    Popoliamo dinamicamente il contenuto del carosello con i dati forniti dall'array di oggetti,
+    dal js (dentro al nostro 'carousel-item', per capirci).
 
 Milestone 1:
-Al click dell'utente sulle frecce verso l'alto o verso il basso, l'immagine attiva diventerà visibile.
+    Al click dell'utente sulle frecce verso l'alto o verso il basso, l'immagine attiva diventerà visibile.
 
 Milestone 2:
-Aggiungiamo alla visualizzazione delle immagini anche titolo e testo relative alla singola immagine.
+    Aggiungiamo alla visualizzazione delle immagini anche titolo e testo relative alla singola immagine.
 
 Bonus 1:
-Aggiungere il ciclo infinito del carosello. Ovvero se l'immagine attiva è la prima e l'utente clicca la freccia verso l'alto,
-l'immagine che deve attivarsi sarà l'ultima e viceversa per l'ultima immagine se l'utente clicca la freccia verso il basso.
+    Aggiungere il ciclo infinito del carosello. Ovvero se l'immagine attiva è la prima e l'utente clicca la freccia verso l'alto,
+    l'immagine che deve attivarsi sarà l'ultima e viceversa per l'ultima immagine se l'utente clicca la freccia verso il basso.
 
 Bonus 2:
-Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
+    Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
 
 Bonus 3:
-Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva
-dovrà cambiare alla successiva.
+    Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva
+    dovrà cambiare alla successiva.
+
 */
 
 const images = [
@@ -55,3 +56,24 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
+
+
+const carouselImg = document.querySelector('.carousel-image');
+console.log(carouselImg);
+
+for (let i = 0; i < images.length; i++) {
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('my_carousel-item');
+    carouselImg.append(carouselItem);
+
+    const currentImage = images[i];
+    carouselItem.innerHTML += `<img src="./img/${currentImage.image}"</img>`
+    carouselItem.innerHTML += `<h3>${currentImage.title}</h3>`;
+    carouselItem.innerHTML += `<p>${currentImage.text}</p>`;
+    
+}
+
+
+
+
