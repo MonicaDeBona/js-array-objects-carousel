@@ -1,5 +1,4 @@
 /*
-
 Dato un array di oggetti letterali con:
     url dell’immagine
     titolo
@@ -72,20 +71,33 @@ for (let i = 0; i < images.length; i++) {
     myImgArr.push(carouselItem);
 
     const currentImage = images[i];
-    carouselItem.innerHTML += `<img src="./img/${currentImage.image}"</img>`
+    carouselItem.innerHTML += `<img src="./${currentImage.image}"</img>`
     carouselItem.innerHTML += `<h3>${currentImage.title}</h3>`;
     carouselItem.innerHTML += `<p>${currentImage.text}</p>`;
 }
 
 console.log(myImgArr)
+let current = 0;
 
-let active = 0;
 myImgArr[0].classList.add('active');
 
 nextButton.addEventListener('click', function(){
-        
+    myImgArr[current].classList.remove('active');
+    current++;
+    if(current > myImgArr.length - 1){
+        current = 0;
+    }
+    myImgArr[current].classList.add('active');
 });
 
+previousButton.addEventListener('click', function(){
+    myImgArr[current].classList.remove('active');
+    current--;
+    if(current < 0){
+        current = myImgArr.length - 1
+    }
+    myImgArr[current].classList.add('active');
+});
 
 
 
