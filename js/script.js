@@ -91,12 +91,11 @@ nextButton.addEventListener('click', function(){
 });
 
 previousButton.addEventListener('click', function(){
-    myImgArr[current].classList.remove('active');
-    current--;
-    if(current < 0){
-        current = myImgArr.length - 1
+    if(current != 0){
+        myImgArr[current].classList.remove('active');
+        current--;
+        myImgArr[current].classList.add('active');
     }
-    myImgArr[current].classList.add('active');
 });
 
 
